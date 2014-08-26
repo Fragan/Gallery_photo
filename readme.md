@@ -55,6 +55,12 @@ With the [mgn-meta project] tool edit your metadata on your computer, then with 
 
 At last go to your main page of the gallery.
 
+Remove gallery
+--------------
+
+Just delete the folder from the FTP
+
+
 
 
 [mgn-meta project]:https://github.com/Fragan/mgn-meta
