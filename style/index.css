@@ -1,0 +1,382 @@
+@font-face {
+    font-family: gruppo;
+    src: url(Gruppo-Regular.ttf);
+}
+
+html,body{
+	margin: 0;
+	padding: 0 !important;
+	height: 100%;
+  background-color: #1B1B1B;
+  font-family: gruppo, sans-serif;
+}
+
+.body{
+  background-image: url('Background.jpg');
+  margin: 0;
+  padding: 0 !important;
+  height: 100%;
+  overflow: auto; 
+  
+}
+
+.navbar {
+    border-radius: 0px !important;
+    background-color: rgba(11, 10, 10, 0.91);
+}
+
+.wrap{
+	min-height: 100%;
+	position: relative;
+}
+
+.content{
+	padding-bottom: 100px;
+	color: white;
+}
+
+.footer{
+	width: 100%;
+	height: 80px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+  background-color: rgba(11, 10, 10, 1);
+}
+
+.padd{
+	margin-top: 20px;
+}
+
+.bio{
+	background: green;
+	border: solid 1px black;
+	width: 200px;
+	height:100px;
+	border-radius: 50%;
+}
+
+.biocontent{
+	position: relative;
+	left: 50%;
+	top: 50%;
+}
+
+
+.gallery_grid_title{
+	text-align: right;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	bottom: 20px;
+	font-weight: bolder;
+	font-size: large;
+	background: rgba(0, 0, 0, 0.75);
+	cursor: pointer;
+	color: white;
+}
+
+.galtitle{
+	padding-top: 10px;
+	padding-right: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.grid{
+	position: relative;
+	display: inline-block;
+	height: 225px;
+	margin-right: 2.5px;
+	margin-left: 2.5px;
+	padding-bottom: auto; 
+	cursor: pointer;
+	background: black;
+	border: solid #333 1px;
+}
+
+.grid:hover .img{
+  opacity: 0.50;
+}
+
+.img{
+	max-height: 223px;  
+    max-width: 100%;  
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto; 
+}
+
+@media screen and (max-width: 439px) {
+  .grid {
+    width: 100%;
+    max-width: 300px;
+    left: 50%;
+	transform: translate(-50%); 
+	-webkit-transform: translate(-50%); 
+  }
+
+}
+
+@media screen and (min-width: 440px) {
+  .grid {
+  	width:  48%;
+    width:  calc((100% / 2) - (10px));
+    width:  -o-calc((100% / 2) - (10px));
+    width:  -moz-calc((100% / 2) - (10px));
+    width:  -webkit-calc((100% / 2) - (10px));
+  }
+}
+
+@media screen and (min-width: 670px) {
+  .grid {
+  	width:  32%;
+    width:  calc((100% / 3) - (15px));
+    width:  -o-calc((100% / 3) - (15px));
+    width:  -moz-calc((100% / 3) - (15px));
+    width:  -webkit-calc((100% / 3) - (15px));
+  }
+}
+@media screen and (min-width: 992px) {
+  .grid {
+  	width:  23%;
+  	width:  calc((100% / 4) - (20px));
+    width:  -webkit-calc((100% / 4) - (20px));
+    width:  -moz-calc((100% / 4) - (20px));
+    width:  -o-calc((100% / 4) - (20px));
+  }
+}
+@media screen and (min-width: 1200px) {
+  .grid {
+  	width:  23%;
+    width:  calc((100% / 4) - (20px));
+    width:  -o-calc((100% / 4) - (20px));
+    width:  -moz-calc((100% / 4) - (20px));
+    width:  -webkit-calc((100% / 4) - (20px));
+  }
+}
+
+.blueimp-gallery > .rel {
+	margin: 0px 40px 0px 0px;
+	font-size: 15px;
+	line-height: 30px;
+    color: #FFF;
+    text-shadow: 0px 0px 2px #000;
+    opacity: 0.8;
+    display: none;
+}
+
+.blueimp-gallery > .titre{
+  position: absolute;
+  /*top: 15px;*/
+  /*min-width: 100px;*/
+  display: none;
+  padding-left: 15px;
+}
+.blueimp-gallery > .titre > .soustitre{
+  position: relative;
+  bottom: 0px;
+  right: 0px;
+  text-align: right;
+  display: none;
+}
+
+.blueimp-gallery > p {
+  color: red;
+}
+
+.blueimp-gallery-controls > .rel,
+.blueimp-gallery-controls > .titre,
+.blueimp-gallery-controls > .hreflang,
+.blueimp-gallery-controls > .titre > .soustitre{
+	display: block;
+
+	/* Fix z-index issues (controls behind slide element) on Android: */
+  -webkit-transform: translateZ(0);
+     -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+       -o-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+
+
+img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.thumbnails{
+  max-height: 100px;
+  margin-right: 15px;
+  border: black 1px solid;
+}
+
+.marker
+{
+	background-color: red;
+}
+
+.target{
+  color: white;
+}
+
+.img_center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 4px #333;
+  max-height: 400px;
+}
+
+.textarea{
+  background-color: #333;
+  resize: none; 
+  width: 100%; 
+  height: 200px; 
+  border: double 2px grey;
+}
+
+.sep{
+  height: 10px;
+}
+
+.comment-input-name{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.no-pad{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.no-radius{
+  border-radius: 0px 0px 0px 0px !important;
+}
+
+.border{
+  border-top: double 2px grey;
+  border-left: double 2px grey;
+  border-right: double 2px grey;
+}
+
+.comment-info{
+  background-color: #151515;
+  border-bottom: solid 1px grey;
+}
+
+.comment-content{
+  /*background-color: #333;*/
+  background-color: #1B1B1B;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.title{
+  font-size: 20px;
+}
+
+.scroll{
+  position: fixed;
+  bottom: 20px;
+  display: none;
+  z-index: 998;
+}
+
+.scroll > .btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: none;
+}
+
+.gallery_list{
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857;
+  color: #333;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.gallery_list:hover{
+  text-decoration: none;
+  color: #262626;
+  background-color: #F5F5F5;
+}
+
+
+.commentaires{
+  display: none;
+}
+
+.galeries{
+  display: none;
+}
+
+.padd-admin{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.paire{
+  background: #333;
+  cursor: pointer;
+}
+
+.impaire{
+  background: #444;
+  cursor: pointer;
+}
+
+.gallery-info{
+  cursor: pointer;
+}
+
+.form-back{
+  display: none;
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 999;
+}
+
+.gal-form-back{
+  display: none;
+  position: fixed;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 999;
+}
+
+.form-fix{
+  position: fixed;
+  top: 25%;
+  bottom: 25%;
+  left: 25%;
+  right: 25%;
+  padding: 20px;
+  padding-top: 50px;
+}
+
+.form-close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.delete-com{
+  cursor: pointer;
+}
