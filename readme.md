@@ -23,7 +23,7 @@ Gallery Photo uses a number of open source projects to work properly:
 * [JQuery-ui]
 * [Bootstrap-file-input]
 * [CKEditor]
-* [Blueimp Gallery] (slightly modified)
+* [Blueimp Gallery] "slightly modified"
 
 Server requirements
 -------------------
@@ -59,6 +59,11 @@ Remove gallery
 --------------
 
 Just delete the folder from the FTP
+
+Admin acces page
+----------------
+
+http://indexURL/admin/
 
 
 
