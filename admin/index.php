@@ -118,7 +118,7 @@ if ((!isset($_SESSION['log'])) || (empty($_SESSION['log']))){
     <div class="container">
       <div class="col-md-12 padd">
         <div class="col-md-8">
-	       <a href="#" target="_blank">Github</a>
+	       <a href="https://github.com/Padow/Gallery_photo" target="_blank">Github</a>
         </div>
         <div class="col-md-4 pull-right">  
           © 2014 <a href="http://steamcommunity.com/id/padow/" target="_blank">Padow</a>. All rights reserved.
