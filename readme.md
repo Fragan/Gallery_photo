@@ -60,7 +60,7 @@ Remove gallery
 
 Just delete the folder from the FTP
 
-Admin acces page
+Admin access page
 ----------------
 
 http://indexURL/admin/
