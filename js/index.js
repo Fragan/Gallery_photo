@@ -230,7 +230,7 @@ function antiSpam(){
           $('#commentForm').submit();
           break;
         case 'fail':
-          alert(response.message);
+          $('#alert-message').load('php/alert.display.php').fadeIn("slow");
           break;
         default:
           alert("unknown response");
