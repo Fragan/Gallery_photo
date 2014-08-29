@@ -68,7 +68,11 @@ $param = new Param();
         $bio = new Bio();
 
             $dir    = 'uploads';
+            if (!is_dir($dir))
+              mkdir($dir);
+
             $gallery = scandir($dir);
+            $gallery_list = array();
             $cpt = 0;
             foreach ($gallery as $value) {
                 if ($value != '.' && $value !='..') {
@@ -77,12 +81,12 @@ $param = new Param();
                     $cpt++;          
                 }
             }
-            if(isset($gallery_list)){
+            // if(isset($gallery_list)){
               $json = json_encode($gallery_list);  
               $fp = fopen('images_list.json', 'w');
               fwrite($fp, $json);
               fclose($fp);
-            }
+            // }
         ?>
 
         <form method="post">
