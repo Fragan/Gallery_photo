@@ -4,7 +4,11 @@
 
 		public function __construct(){
 			$this->_connexion = parent::__construct();
-			$dir    = 'photos';
+			$dir = 'photos';
+
+			if (!is_dir($dir))
+              mkdir($dir);
+
 			$gallery = scandir($dir);
 			foreach ($gallery as $value) {
 				if ($value != '.' && $value !='..') {
@@ -39,9 +43,10 @@
 					$lines = preg_split("/\n/", $value, null);
 					$lines_utf8[] = utf8_encode($lines[0]);
 			}
+			$lines_utf8 = array_filter($lines_utf8);
 
 			$title_line = preg_split("/\|/", $lines_utf8[0], -1, PREG_SPLIT_NO_EMPTY);
-			if ($title_line[0] == "title") {
+			if (($title_line[0] == "title") && (isset($title_line[1]))) {
 				$title_line = explode("@", $title_line[1]);
 				$folder_name = preg_split("/\//", $file);
 				$folder_name = $folder_name[1];
@@ -80,7 +85,7 @@
 			$metadata = array();
 			foreach ($lines_utf8 as $key => $value) {
 				$split = preg_split("/\|/", $value, -1, PREG_SPLIT_NO_EMPTY);
-				if ($split[0] != "title") {
+				if (((isset($split)) || ($split[0] != "title")) && (isset($split[1]))) {
 					$metadata[$split[0]] = $split[1];
 				}
 				
