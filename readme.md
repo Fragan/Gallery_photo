@@ -42,9 +42,9 @@ git clone https://github.com/Padow/Gallery_photo.git
 ##### Deploy database.
 * gallery.sql
 
-##### Configure params files.
+##### Configure *.json files.
 
-* config/sql.ini --> sets param for BDD
+* config/mysql.json --> sets param for BDD
 * config/param.json --> sets title of the pages, footer contact link, title of the main page  
 * config/admin.json --> sets login/password for the admin tools page
 
