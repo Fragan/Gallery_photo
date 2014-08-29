@@ -5,14 +5,10 @@
 	define("CONFIG", $path);
 	if (file_exists($path)) {
 		$array = json_decode(file_get_contents($path));	
-		$host = $array->{'mysql'}->{'host'};
-		$user = $array->{'mysql'}->{'user'};
-		$password = $array->{'mysql'}->{'password'};
-		$database = $array->{'mysql'}->{'database'};
-		define("DBHOST", $host);
-		define("DBUSER", $user);
-		define("DBPASSWORD", $password);
-		define("DBNAME", $database);
+		define("DBHOST", $array->{'mysql'}->{'host'});
+		define("DBUSER", $array->{'mysql'}->{'user'});
+		define("DBPASSWORD", $array->{'mysql'}->{'password'});
+		define("DBNAME", $array->{'mysql'}->{'database'});
 	}
 
 	class Connexion{
