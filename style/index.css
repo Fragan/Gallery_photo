@@ -363,11 +363,11 @@ img{
 .form-fix{
   position: fixed;
   top: 25%;
-  bottom: 25%;
   left: 25%;
   right: 25%;
   padding: 20px;
   padding-top: 50px;
+  z-index: 1000;
 }
 
 .form-close{
