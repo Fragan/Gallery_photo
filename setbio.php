@@ -75,18 +75,17 @@ $param = new Param();
             $gallery_list = array();
             $cpt = 0;
             foreach ($gallery as $value) {
-                if ($value != '.' && $value !='..') {
-                    $gallery_list[$cpt]['image'] = 'uploads/'.$value;              
-                    $gallery_list[$cpt]['thumb'] = '../../../../uploads/'.$value;    
-                    $cpt++;          
-                }
+              if ($value != '.' && $value !='..') {
+                  $gallery_list[$cpt]['image'] = 'uploads/'.$value;              
+                  $gallery_list[$cpt]['thumb'] = '../../../../uploads/'.$value;    
+                  $cpt++;          
+              }
             }
-            // if(isset($gallery_list)){
-              $json = json_encode($gallery_list);  
-              $fp = fopen('images_list.json', 'w');
-              fwrite($fp, $json);
-              fclose($fp);
-            // }
+            $json = json_encode($gallery_list);  
+            $fp = fopen('images_list.json', 'w');
+            fwrite($fp, $json);
+            fclose($fp);
+
         ?>
 
         <form method="post">
