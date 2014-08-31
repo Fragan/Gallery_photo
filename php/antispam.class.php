@@ -18,8 +18,6 @@ Class Antispam extends Connexion{
 
 			if ($interval>20){
 				return True;
-			}else{
-				return False;
 			}
 		}
 

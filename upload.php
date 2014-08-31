@@ -16,7 +16,6 @@ function upload($file) {
 			// Optional message to show to the user (file renamed, invalid file, not authenticated...)
 			$message = '';
 	        $dir = __DIR__;
-			// $dir = substr($dir, 0, -3);
 			$dir .= "/uploads/";
 	        $extensions = array('.png', '.gif', '.jpg', '.jpeg');
 	        $maxsize  = 200000;

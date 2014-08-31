@@ -58,19 +58,17 @@ Class Admin extends Connexion{
 	 		if (file_exists($path)) {
 	 			$array = json_decode(file_get_contents($path));
 				return $array;
-	 		}else{
-	 			return false;
 	 		}
-			
 	 	}
 
 		function getLogin(){
 			if ($this->getJson()){
  				$admin['login'] = $this->getJson()->{'admin'}->{'login'};
  				$admin['password'] = $this->getJson()->{'admin'}->{'password'};
- 			}
- 			if(($admin['login'] != "") && ($admin['password'] != ""))
+
+ 				if(($admin['login'] != "") && ($admin['password'] != ""))
  				return $admin;
+ 			}
 		}
 
 		function login($login, $password){
@@ -88,9 +86,7 @@ Class Admin extends Connexion{
 												FROM comments JOIN pictures on comments.pics = pictures.id ORDER BY comments.id DESC");
 			$sql-> execute();
 			$rows = $sql->fetchAll(PDO::FETCH_ASSOC);
-			if (empty($rows)) {
-				
-			}else{
+			if (!empty($rows)) {
 				foreach ($rows as $value) {
 					echo '<div class="col-md-12 sep"></div>';
 					echo '<div class="col-md-12 comment-info">';

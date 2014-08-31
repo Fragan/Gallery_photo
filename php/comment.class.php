@@ -91,13 +91,6 @@ Class Comment extends Connexion{
 			$time = $temptime[0].'h'.$temptime[1];
 			echo ", le ".$date." à ".$time;
 		}
-
-		public function antiSpam(){
-			$ip = $_SERVER['REMOTE_ADDR'];
-			var_dump($ip);
-		}
-
-
 }
 
 

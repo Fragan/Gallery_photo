@@ -11,10 +11,8 @@
 	$spamm = new Antispam();
 	if($spamm->antiSpam($ip)){
 		$return_arr["status"] = "success";
-		$return_arr["message"] = $ip;
 	}else{
 		$return_arr["status"] =  "fail";
-		$return_arr["message"] = "Vous devez attendre 20s entre chaques messages";
 	}
 		
       echo json_encode($return_arr);

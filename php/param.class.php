@@ -6,10 +6,7 @@
  		if (file_exists($path)) {
  			$array = json_decode(file_get_contents($path));
 			return $array;
- 		}else{
- 			return false;
  		}
-		
  	}
 
  	public function setPageTitle(){
