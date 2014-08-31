@@ -1,9 +1,7 @@
 Gallery Photo
 =======
----
-This is a web photo gallery, using the [mgn-meta project].
 
-The metadata.json aren't yet usable.
+This is a web photo gallery, using the [mgn-meta project].
 
 Demo
 ----
@@ -53,7 +51,13 @@ Add new gallery
 
 With the [mgn-meta project] tool edit your metadata on your computer, then with an ftp client copy the whole folder on your FTP into "photos" folder (avoid using special chars for the folder name).
 
+/!\ the metadata file must be in your folder containing the photos.
 At last go to your main page of the gallery.
+Thumbnails will be automatically generated, and metadata insert in BDD.
+
+PS : After the insertion of the metadata into the database, the metadata file is deleted.
+Once the metadata file deleted, the script don't re-check the existing galleries.
+So if you added an image to the gallery, this one will not be taken into account
 
 Remove gallery
 --------------
