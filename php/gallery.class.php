@@ -277,6 +277,9 @@
 			$subtitle = htmlspecialchars($info->{'description'}, ENT_QUOTES);
 			$folder_name = preg_split("/\//", $file);
 			$folder_name = $folder_name[1];
+			if($title == ""){
+				$title = $folder_name;
+			}
 
 			$this->insertGallery($folder_name, $title, $subtitle);
 			$id = $this->getGalleryId($folder_name);
