@@ -8,28 +8,23 @@
 
 			if (!is_dir($dir))
               mkdir($dir);
-
+          	$gallery_list = array();
 			$gallery = scandir($dir);
 			foreach ($gallery as $value) {
 				if ($value != '.' && $value !='..') {
 					$gallery_list[] = $dir.'/'.$value;				
 				}
 			}
-
-			if (isset($gallery_list)) {
-				$this->check_galleries($gallery_list);
-				foreach ($gallery_list as $value) {
-					$gallery_content = scandir($value);
-					if($this->metadata($gallery_content)){
-						$this->newGallery($value);
-					}
-					if($this->metadataJson($gallery_content)){
-						$this->newGalleryJson($value);
-					}
+			
+			$this->check_galleries($gallery_list);
+			foreach ($gallery_list as $value) {
+				$gallery_content = scandir($value);
+				if($this->metadata($gallery_content)){
+					$this->newGallery($value);
 				}
-			}else{
-				$gallery_list = array();
-				$this->check_galleries($gallery_list);
+				if($this->metadataJson($gallery_content)){
+					$this->newGalleryJson($value);
+				}
 			}
 			
 			$this->displayGalleries();
@@ -225,7 +220,7 @@
 
 			// if pictures name from folder exist in metadata
 			// name and metadata are add to the array
-			// if not exist name is add ass metadata
+			// if not exist name is add
 			$metadata = $this->getPictureMetatdata($lines_utf8);
 			$pics_to_add = array();
 			foreach ($gallery_pictures as $value) {
