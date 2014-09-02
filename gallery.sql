@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `gallery` int(10) NOT NULL,
   `pics` int(10) NOT NULL,
   `author` varchar(50) NOT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `comment` text NOT NULL,
   `ip` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
