@@ -82,8 +82,18 @@ Class Admin extends Connexion{
 		}
 
 		public function getAllComments(){
-			$sql = $this->_connexion->prepare("SELECT comments.id, comments.pics, comments.author, comments.date, comments.`comment`, pictures.nbcomment
-												FROM comments JOIN pictures on comments.pics = pictures.id ORDER BY comments.id DESC");
+			$sql = $this->_connexion->prepare("SELECT 	comments.id, 
+														comments.pics, 
+														comments.author, 
+														comments.date, 
+														comments.`comment`, 
+														pictures.nbcomment, 
+														pictures.gallery, 
+														galleries.name
+											FROM comments 
+											JOIN pictures ON comments.pics = pictures.id 
+											JOIN galleries ON pictures.gallery = galleries.id 
+											ORDER BY comments.id DESC");
 			$sql-> execute();
 			$rows = $sql->fetchAll(PDO::FETCH_ASSOC);
 			if (!empty($rows)) {
@@ -92,12 +102,15 @@ Class Admin extends Connexion{
 					echo '<div class="col-md-12 comment-info">';
 					echo '<strong>'.$value['author'].'</strong>';
 					$this->formatDate($value['date']);
+					echo '<p> dans "'.$value['name'].'"</p>';
 					echo '</div>';
 					echo '<div class="col-md-12 comment-content">';
 					echo $value['comment'];
 					echo '<div class="pull-right"><span onclick="deleteComment(this.id);" id="'.$value['id'].'" pic="'.$value['pics'].'" nbcom="'.$value['nbcomment'].'"  class="glyphicon glyphicon-trash delete-com"></span></div>';
 					echo '</div>';
 				}
+			}else{
+				echo "<h3>Aucun commentaire.</h3>";
 			}
 		}
 
@@ -117,7 +130,7 @@ Class Admin extends Connexion{
 
 			$temptime = explode(":", $tempdatetime[1]);
 			$time = $temptime[0].'h'.$temptime[1];
-			echo ", le ".$date." à ".$time;
+			echo ", le ".$date." à ".$time.",";
 		}
 
 		public function getGalleryInfo($name){

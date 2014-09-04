@@ -220,7 +220,24 @@ function deleteComment(id){
 }
 
 function antiSpam(){
-  $.ajax({
+  var auth = $('#author-input').val();
+  var comment = $('#form_Commentaire').val();
+  var test = true;
+  if (auth == "") {
+    test = false;
+    $('#author-input').css({"border-color": "#F71D1D", "box-shadow": "0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(239, 55, 55, 0.6)", "outline": "0px none"});
+  }else{
+    $('#author-input').css({"border": "1px solid #CCC", "box-shadow": "0px 1px 1px rgba(0, 0, 0, 0.075) inset"});
+  }
+  if (comment == "") {
+    test = false;
+    $('#form_Commentaire').css({"border-color": "#F71D1D", "box-shadow": "0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(239, 55, 55, 0.6)", "outline": "0px none"});
+  }else{
+    $('#form_Commentaire').css({"border": "1px solid #CCC", "box-shadow": "0px 1px 1px rgba(0, 0, 0, 0.075) inset"});
+  }
+
+  if (test) {
+    $.ajax({
     url: "php/antispam.php",
     dataType: "json",
     success: function(response){
@@ -237,6 +254,8 @@ function antiSpam(){
       }  
     }
   });
+  }
+  
 }
 
 $( document ).click(function(event) {

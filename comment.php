@@ -80,7 +80,7 @@ $param = new Param();
 		          	<div class="col-md-12 comment-input-name">
 			          	<div class="input-group ">
 					      <div class="input-group-addon no-radius">Nom</div>
-					     	 <input class="form-control no-radius" name="author" type="text" placeholder="Entrez votre nom" required>
+					     	 <input class="form-control no-radius" id="author-input" name="author" type="text" placeholder="Entrez votre nom" required>
 					    </div>
 			        </div>
 		        </div>
