@@ -177,17 +177,9 @@
 			if (($title_line[0] == "title") && (isset($title_line[1]))) {
 				$title_line = explode("@", $title_line[1]);
 				$folder_name = preg_split("/\//", $file);
-				$folder_name = $folder_name[1];
-				if (isset($title_line[0])) {
-					$gallery_title = htmlspecialchars($title_line[0], ENT_QUOTES);
-				}else{
-					$gallery_title = htmlspecialchars($folder_name, ENT_QUOTES);
-				}
-				if (isset($title_line[1])) {
-					$gallery_subtitle = htmlspecialchars($title_line[1], ENT_QUOTES);
-				}else{
-					$gallery_subtitle = "";
-				}				
+				$folder_name = $folder_name[1];	
+				$gallery_title = (isset($title_line[0]))?(htmlspecialchars($title_line[0], ENT_QUOTES)):(htmlspecialchars($folder_name, ENT_QUOTES));
+				$gallery_subtitle = (isset($title_line[1]))?(htmlspecialchars($title_line[1], ENT_QUOTES)):"";
 			}else{
 				$gallery_title = preg_split("/\//", $file);
 				$gallery_title = htmlspecialchars($gallery_title[1], ENT_QUOTES);
@@ -206,8 +198,7 @@
 				$split = preg_split("/\|/", $value, -1, PREG_SPLIT_NO_EMPTY);
 				if (((isset($split)) || ($split[0] != "title")) && (isset($split[1]))) {
 					$metadata[$split[0]] = $split[1];
-				}
-				
+				}		
 			}
 			return $metadata;
 		}
@@ -222,11 +213,7 @@
 			$metadata = $this->getPictureMetatdata($lines_utf8);
 			$pics_to_add = array();
 			foreach ($gallery_pictures as $value) {
-				if (array_key_exists($value, $metadata)) {
-					$pics_to_add[$value] = $metadata[$value];
-				}else{
-					$pics_to_add[$value] = $value.'::';
-				}
+				$pics_to_add[$value] = (array_key_exists($value, $metadata))?$metadata[$value]:$value.'::';
 			}
 			
 			// insert in BDD pics name and data
@@ -237,16 +224,8 @@
 				$escape_value = htmlspecialchars($value, ENT_QUOTES);
 				$this->createThumbnail($key, $dir.'/', $thumb_dir );
 				$split = preg_split("/::/", $escape_value, -1, PREG_SPLIT_NO_EMPTY);
-				if(isset($split[0])){
-					$pic_title = $split[0];
-				}else{
-					$pic_title = $key;
-				}
-				if(isset($split[1])){
-					$pic_subtitle = $split[1];
-				}else{
-					$pic_subtitle = "";
-				}
+				$pic_title = (isset($split[0]))?$split[0]:$key;
+				$pic_subtitle = (isset($split[1]))?$split[1]:"";
 				$this->insertPics($id, $pic_title, $pic_subtitle, $link, $thumb);
 			}
 

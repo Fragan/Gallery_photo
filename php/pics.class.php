@@ -28,11 +28,7 @@ Class Pictures extends Connexion{
 			$total = count($rows);
 			$cpt = 1;		
 			foreach ($rows as $key => $value) {
-				if ($value['nbcomment']>1) {
-					$comment = $value['nbcomment'].' commentaires';
-				}else{
-					$comment = $value['nbcomment'].' commentaire';
-				}
+				$comment = ($value['nbcomment']>1)?$value['nbcomment'].' commentaires':$value['nbcomment'].' commentaire';
 				echo '<div class="grid" id="'.$value['link'].'"><a rev="comment.php?gallery='.$value['gallery'].'&pics='.$value['id'].'" target="'.$comment.'" hreflang="'.$cpt.'/'.$total.'" id="img_link" href="'.$value['link'].'" title="'.$value['name'].'" rel="'.$value['info'].'"><img draggable="false" class="img" src="'.$value['thumb'].'" alt="'.$value['info'].'"></a></div>';
 				$cpt++;
 			}

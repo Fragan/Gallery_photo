@@ -53,9 +53,7 @@ Class Comment extends Connexion{
 			$sql-> bindParam('gallery', $gallery, PDO::PARAM_INT);
 			$sql-> execute();
 			$rows = $sql->fetchAll(PDO::FETCH_ASSOC);
-			if (empty($rows)) {
-				
-			}else{
+			if (!empty($rows)) {
 				foreach ($rows as $value) {
 					echo '<div class="col-md-12 comment-info">';
 					echo '<strong>'.$value['author'].'</strong>';
